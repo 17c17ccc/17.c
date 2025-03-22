@@ -1,1 +1,36 @@
-今天是个平凡却温馨的日子。早晨，阳光透过窗帘的缝隙，悄悄唤醒了沉睡的我，带来一天的好心情。午后，漫步在公园的小径上，春风拂面，花香袭人，心情格外舒畅。偶遇一只慵懒晒太阳的小猫，它眯着眼，享受着这份宁静，我也忍不住驻足，感受这份简单的小确幸。晚上，和家人围坐餐桌旁，共进晚餐，聊着日常琐事，心里暖洋洋的。生活，就是由这些平凡而美好的瞬间组成的，值得我们细细品味。
+4. 查询衬衣（Read）
+我们可以定义一个函数来显示所有衬衣信息，或者根据特定ID查询单个衬衣信息。
+
+python
+def list_shirts():
+    if not shirts:
+        print("No shirts available.")
+    else:
+        for shirt in shirts:
+            print(shirt)
+ 
+def find_shirt(shirt_id):
+    for shirt in shirts:
+        if shirt['id'] == shirt_id:
+            return shirt
+    print(f"Shirt with ID {shirt_id} not found.")
+    return None
+5. 更新衬衣（Update）
+定义一个函数来更新库存中的衬衣信息。
+
+python
+def update_shirt(shirt_id, new_data):
+    shirt = find_shirt(shirt_id)
+    if shirt:
+        shirt.update(new_data)
+        print(f"Shirt {shirt_id} updated successfully.")
+    else:
+        print(f"Shirt with ID {shirt_id} not found.")
+6. 删除衬衣（Delete）
+定义一个函数来从库存中删除特定ID的衬衣。
+
+python
+def delete_shirt(shirt_id):
+    global shirts
+    shirts = [shirt for shirt in shirts if shirt['id'] != shirt_id]
+    print(f"Shirt {shirt_id} deleted successfully.")
